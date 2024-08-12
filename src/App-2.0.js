@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
+import { PostConProv, PostContext } from "./context/PostContext";
 
 function createRandomPost() {
   return {
@@ -23,6 +24,7 @@ function App() {
   );
 
   return (
+    <PostConProv>
       <section>
         <button
           onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
@@ -36,6 +38,7 @@ function App() {
         <Archive />
         <Footer />
       </section>
+    </PostConProv>  
   );
 }
 

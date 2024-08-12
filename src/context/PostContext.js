@@ -17,7 +17,6 @@ function PostConProv() {
   );
   const [searchQuery, setSearchQuery] = useState("");
 
-
   // Derived state. These are the posts that will actually be displayed
   const searchedPosts =
     searchQuery.length > 0
@@ -37,8 +36,8 @@ function PostConProv() {
   }
 
   return (
-    <PostContext.Provider value={{ posts: searchedPosts, onClearPosts: handleClearPosts, onAddPost: handleAddPost, searchQuery, setSearchQuery, }}></PostContext.Provider>
+    <PostConProv.Provider value={{ posts: searchedPosts, onClearPosts: handleClearPosts, onAddPost: handleAddPost, searchQuery, setSearchQuery, }}></PostConProv.Provider>
   )
 };
 
-export PostConProv;
+export { PostConProv };
