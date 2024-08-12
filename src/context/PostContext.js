@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { faker } from "@faker-js/faker";
 
 const PostContext = createContext();
@@ -10,7 +10,7 @@ function createRandomPost() {
   };
 }
 
-function PostConProv() {
+function PostConProv({ children }) {
 
   const [posts, setPosts] = useState(() =>
     Array.from({ length: 30 }, () => createRandomPost())
@@ -36,8 +36,15 @@ function PostConProv() {
   }
 
   return (
-    <PostConProv.Provider value={{ posts: searchedPosts, onClearPosts: handleClearPosts, onAddPost: handleAddPost, searchQuery, setSearchQuery, }}></PostConProv.Provider>
+    <PostConProv.Provider value={{ posts: searchedPosts, onClearPosts: handleClearPosts, onAddPost: handleAddPost, searchQuery, setSearchQuery, }}>
+      { children }
+    </PostConProv.Provider>
   )
 };
 
-export { PostConProv };
+function usePost() {
+  const context = useContext(PostContext);
+  return context; 
+}
+
+export { PostConProv, usePost };

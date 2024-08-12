@@ -24,24 +24,25 @@ function App() {
   );
 
   return (
-    <PostConProv>
-      <section>
-        <button
-          onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
-          className="btn-fake-dark-mode"
-        >
-          {isFakeDark ? "☀️" : "🌙"}
-        </button>
-
+    
+    <section>
+      <button
+        onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
+        className="btn-fake-dark-mode"
+      >
+        {isFakeDark ? "☀️" : "🌙"}
+      </button>
+      <PostConProv>
         <Header />
         <Main />
         <Archive />
         <Footer />
-      </section>
-    </PostConProv>  
+      </PostConProv>
+    </section>
   );
 }
 
+// 3) consuming context value
 function Header() {
   const { onClearPosts } = useContext(PostContext);
 
