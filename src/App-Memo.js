@@ -41,6 +41,11 @@ function App() {
     [isFakeDark]
   );
 
+  const archiveOptions = {
+    show: false,
+    title: "POst archive"
+  }
+
   return (
     <section>
       <button
