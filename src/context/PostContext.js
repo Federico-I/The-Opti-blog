@@ -35,8 +35,18 @@ function PostConProv({ children }) {
     setPosts([]);
   }
 
+  const value = useMemo(() => {
+    return { 
+      posts: searchedPosts,
+       onClearPosts: handleClearPosts,
+        onAddPost: handleAddPost,
+        searchQuery, 
+        setSearchQuery, 
+    }
+  }, [searchedPosts, searchQuery])
+
   return (
-    <PostConProv.Provider value={{ posts: searchedPosts, onClearPosts: handleClearPosts, onAddPost: handleAddPost, searchQuery, setSearchQuery, }}>
+    <PostConProv.Provider value={value}>
       { children }
     </PostConProv.Provider>
   )
