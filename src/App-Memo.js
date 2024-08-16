@@ -34,6 +34,7 @@ const handleAddPost = useCallback(  function handleAddPost(post) {
   }
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
+
   useEffect(
     function () {
       document.documentElement.classList.toggle("fake-dark-mode");
@@ -44,9 +45,9 @@ const handleAddPost = useCallback(  function handleAddPost(post) {
   const archiveOptions = useMemo(() => {
     return {
       show: false,
-      title: `Post archive in addition to ${post.length} main post`
+      title: `Post archive in addition to ${posts.length} main post`
     }
-  }, [post.length]);
+  }, [posts.length]);
 
   return (
     <section>
