@@ -46,9 +46,9 @@ function PostConProv({ children }) {
   }, [searchedPosts, searchQuery])
 
   return (
-    <PostConProv.Provider value={value}>
+    <PostContext.Provider value={value}>
       { children }
-    </PostConProv.Provider>
+    </PostContext.Provider>
   )
 };
 
